@@ -924,15 +924,6 @@ tLimMlmOemDataRsp       *gpLimMlmOemDataRsp;
     tANI_U8 deferredMsgCnt;
     tSirDFSChannelList    dfschannelList;
     tANI_U8 deauthMsgCnt;
-    tANI_U8 gLimIbssStaLimit;
-
-    // Flag to debug remain on channel
-    tANI_BOOLEAN gDebugP2pRemainOnChannel;
-    /* Sequence number to keep track of
-     * start and end of remain on channel
-     * debug marker frame.
-     */
-    tANI_U32 remOnChnSeqNum;
 } tAniSirLim, *tpAniSirLim;
 
 typedef struct sLimMgmtFrameRegistration
@@ -994,6 +985,13 @@ typedef struct sMacOpenParameters
     tANI_U32 frameTransRequired;
     tDriverType  driverType;
 } tMacOpenParameters;
+
+typedef enum
+{
+    HAL_STOP_TYPE_SYS_RESET,
+    HAL_STOP_TYPE_SYS_DEEP_SLEEP,
+    HAL_STOP_TYPE_RF_KILL   
+}tHalStopType;
 
 typedef struct sHalMacStartParameters
 {
